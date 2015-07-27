@@ -19,4 +19,21 @@ describe('Class', function() {
     expect(foo.baz).to.equal(true);
     expect(_foo.baz).to.equal(false);
   });
+
+  it('Calls init when instantiating', function() {
+    var Foo = Class.extend({
+      findAll: function() {
+
+      }
+    },{
+      init: function() {
+        this.bar = true;
+      }
+    }),
+    foo = new Foo();
+
+    expect(foo.bar).to.equal(true);
+    expect(Foo).to.have.property('findAll');
+    expect(Foo.findAll.constructor.name).to.equal('Function');
+  });
 });
