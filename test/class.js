@@ -22,18 +22,24 @@ describe('Class', function() {
 
   it('Calls init when instantiating', function() {
     var Foo = Class.extend({
-      findAll: function() {
+        findAll: function() {
 
-      }
-    },{
-      init: function() {
-        this.bar = true;
-      }
-    }),
-    foo = new Foo();
+        }
+      }, {
+        init: function() {
+          this.bar = true;
+        }
+      }),
+      foo = new Foo(),
+      NewFoo = Foo.extend({
+        findOne: function() {}
+      }, {
+        init: function() {}
+      });
 
     expect(foo.bar).to.equal(true);
     expect(Foo).to.have.property('findAll');
     expect(Foo.findAll.constructor.name).to.equal('Function');
+    expect(NewFoo).to.have.property('findAll');
   });
 });
