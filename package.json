@@ -1,6 +1,6 @@
 {
   "name": "classjs",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
